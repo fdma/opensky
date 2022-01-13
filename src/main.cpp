@@ -7,8 +7,15 @@ void setup() {
 
 void loop() {
   bool btnFlag = false;
-  bool btnState = !digitalRead(3);
+  // сделать перебор с индексом, что бы не было говнокода
+  bool btnState1 = !digitalRead(3);
+  bool btnState2 = !digitalRead(4);
+  bool btnState3 = !digitalRead(5);
+  button(btnFlag, btnState1);
+}
 
+// в идеале запихать в отдельный файл как класс
+void button(bool btnState, bool btnFlag) {
   if(btnState && !btnFlag) {
     btnFlag = true;
     Serial.println("pressed");
@@ -16,6 +23,5 @@ void loop() {
   else {
     btnFlag = false;
     Serial.println("unpressed");
-  }
-
+  } 
 }
